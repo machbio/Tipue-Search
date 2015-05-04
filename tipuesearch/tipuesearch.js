@@ -233,19 +233,16 @@ http://www.tipue.com/search
                                              score += (10 * m_c);
                                         }
 
-                                      //  console.log(tipuesearch_in);
-
-                                      /* Some Error
-                                        if (tipuesearch_in.pages[i].url.search(pat) != -1)
+                                        if (tipuesearch_in.pages[i].loc.search(pat) != -1)
                                         {
                                              score += 20;
                                         }
-                                      */  
+
                                         if (score != 0)
                                         {
                                              for (var e = 0; e < tipuesearch_weight.weight.length; e++)
                                              {
-                                                  if (tipuesearch_in.pages[i].url == tipuesearch_weight.weight[e].url)
+                                                  if (tipuesearch_in.pages[i].loc == tipuesearch_weight.weight[e].url)
                                                   {
                                                        score += tipuesearch_weight.weight[e].score;
                                                   }
@@ -269,7 +266,7 @@ http://www.tipue.com/search
                                              "score": score,
                                              "title": tipuesearch_in.pages[i].title,
                                              "desc": s_t,
-                                             "url": tipuesearch_in.pages[i].url 
+                                             "url": tipuesearch_in.pages[i].loc 
                                         });
                                         c++;                                                                   
                                    }
@@ -312,7 +309,7 @@ http://www.tipue.com/search
                                         score += (10 * m_c);
                                    }
                               
-                                   if (tipuesearch_in.pages[i].url.search(pat) != -1)
+                                   if (tipuesearch_in.pages[i].loc.search(pat) != -1)
                                    {
                                         score += 20;
                                    }
@@ -321,7 +318,7 @@ http://www.tipue.com/search
                                    {
                                         for (var e = 0; e < tipuesearch_weight.weight.length; e++)
                                         {
-                                             if (tipuesearch_in.pages[i].url == tipuesearch_weight.weight[e].url)
+                                             if (tipuesearch_in.pages[i].loc == tipuesearch_weight.weight[e].url)
                                              {
                                                   score += tipuesearch_weight.weight[e].score;
                                              }
@@ -335,7 +332,7 @@ http://www.tipue.com/search
                                              "score": score,
                                              "title": tipuesearch_in.pages[i].title,
                                              "desc": s_t,
-                                             "url": tipuesearch_in.pages[i].url
+                                             "url": tipuesearch_in.pages[i].loc
                                         });
                                         c++;                                                                  
                                    }                              
@@ -382,16 +379,12 @@ http://www.tipue.com/search
                                         //console.log(found[i]);
                                         if (set.showURL)
                                         {
-                                             // Added Try Catch Block with no Error Message
-                                             try{
                                              var s_u = found[i].url.toLowerCase();
-                                          
                                              if(s_u.indexOf('http://') == 0)
                                              {
                                                   s_u = s_u.slice(7);
                                              }                                             
                                              out += '<div class="tipue_search_content_url"><a href="' + found[i].url + '"' + tipue_search_w + '>' + s_u + '</a></div>';
-                                                } catch(e){}
                                         }
                                         
                                         if (found[i].desc)
